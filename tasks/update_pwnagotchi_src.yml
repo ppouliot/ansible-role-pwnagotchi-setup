@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: Update pwnagotchi source from GitHub
+  git:
+    repo: https://github.com/evilsocket/pwnagotchi
+    dest: /usr/local/src/pwnagotchi
+    clone: yes
+    update: yes
+    force: yes

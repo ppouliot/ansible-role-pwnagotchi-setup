@@ -1,0 +1,13 @@
+#!/usr/bin/env ansible-playbook
+---
+- Create pwnlog alias in /etc/bashrc
+  lineinfile:
+    path: /etc/bashrc
+    regexp: /(?s)^((?!alias\ pwnlog).)*$/
+    line: "alias pwnlog=\'tail -f -n300 /var/log/pwn* | sed --unbuffered \"s/,[[:digit:]]\{3\}\]//g\" | cut -d \" \" -f 2\'"
+
+- Create pwnver alias in /etc/bashrc
+  lineinfile:
+    path: /etc/bashrc
+    regexp: /(?s)^((?!alias\ pwnver).)*$/
+    line: "alias pwnver=\'python3 -c \"import pwnagotchi as p; print(p.version)\"\'"

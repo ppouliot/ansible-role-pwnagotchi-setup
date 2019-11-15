@@ -1,0 +1,28 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- Create the nessary lines in /boot/config.txt to enable the RTC 
+  lineinfile:
+    path: /boot/config.txt
+    line: 'dtoverlay=i2c-rtc,ds3231'
+    insertafter: EOF
+
+- Use modified /lib/udev/hwclock-set
+  copy:
+    src: "{{ role_path }}/files/hwclock-set"
+    dest: /lib/udev/hwclock-set
+    owner: root
+    group: root
+    mode: '0755'
+
+
+- Remove fake-hwclock Package
+  apt:
+    name: fake-hwclock
+    state: absent
+
+- Stop and disable fake-hwclock service
+  service:
+    name: fake-hwclock
+    enabled: no
+    state: stopped

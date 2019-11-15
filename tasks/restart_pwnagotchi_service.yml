@@ -1,0 +1,11 @@
+#!/usr/bin/env ansible-playbook
+
+- Touch /root/.pwnagotchi-auto
+  file: 
+    path: /root/.pwnagotchi-auto
+    state: touch
+
+- name: pwnagotchi.service restart
+  service:
+    name: pwnagotchi
+    state: restarted

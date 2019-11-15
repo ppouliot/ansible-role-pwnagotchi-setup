@@ -1,0 +1,95 @@
+# Add your configuration overrides on this file any configuration changes done to default.yml will be lost!
+# Example:
+#
+# ui:
+#   display:
+#     type: 'inkyphat'
+#     color: 'black'
+#
+main:
+  lang: en
+  name: 'pppwnagotchi1'
+  whitelist:
+    - 'franklin.private'
+    - 'franklin.public'
+  custom_plugins: /opt/pwnagotchi-plugins-contrib
+  plugins:
+    grid:
+      enabled: true
+      report: true
+      exclude:
+        - franklin.private
+        - franklin.public
+    ups_lite:
+      enabled: true
+    bt-tether:
+      enabled: true
+      devices:
+        samsung-tablet:
+          enabled: true
+          search_order: 2
+          mac: 6D-33-C0-1A-30-36
+          ip: '192.168.44.45'
+          netmask: 24
+          interval: 1
+          scantime: 15
+          priority: 99
+          max_tries: 0
+          share_internet: true
+        galaxy-note9:
+          enabled: true
+          search_order: 1
+          mac: C4:93:D9:28:87:23
+          ip: '192.168.44.45'
+          netmask: 24
+          interval: 1
+          scantime: 15
+          priority: 99
+          max_tries: 0
+          share_internet: true
+    auto_update:
+      enabled: true
+      install: true
+      interval: 1 
+    auto-backup:
+      enabled: true
+      interval: 1 # every day
+      max_tries: 0 # 0=infinity
+      files:
+        - /boot/config.txt
+        - /root/brain.nn
+        - /root/brain.json
+        - /root/.api-report.json
+        - /root/handshakes/
+        - /root/peers/
+        - /etc/pwnagotchi/
+        - /var/log/pwnagotchi.log
+      commands:
+        - 'tar czf /root/pwnagotchi-backup.tar.gz {files}'
+    memtemp:
+      enabled: true
+      scale: fahrenheit 
+      orientation: vertical
+    wpa-sec:
+      enabled: true
+      api_key: "{{ pwnagotchi_wpasec_api_key }}"
+      api_url: "https://wpa-sec.stanev.org"
+    wigle:
+      enabled: true
+      api_key: "{{ pwnagotchi_wigle_api_key }}"
+    onlinehashcrack:
+      enabled: false
+      email: peter@pouliot.net
+personality:
+  advertise: true
+  associate: true
+  deauth: true
+ui:
+  fps: 1.0
+  display:
+    enabled: true
+    type: 'inkyphat'
+    # color: 'fastAndFurious'
+    color: 'black'
+  video:
+    enabled: true

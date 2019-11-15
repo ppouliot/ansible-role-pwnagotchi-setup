@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- pwnagotchi config.yml template
+  template:
+    src: "{{ role_path }}/templates/config.yml.j2"
+    dest: '/etc/pwnagotchi/config.yml'
+    user: root
+    group: root
+    mode: '0644'
