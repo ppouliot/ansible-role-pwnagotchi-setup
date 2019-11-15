@@ -1,5 +1,6 @@
 ---
 # defaults file for pwnagotchi-setup
+pwnagotchi_version: '1.2.1'
 pwnagotchi_github_username:
 pwnagotchi_wigle_api_key:
 pwnagotchi_wpasec_api_key:

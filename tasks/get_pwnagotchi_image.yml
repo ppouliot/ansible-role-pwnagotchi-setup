@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: retrieve the latest pwnagotchi image
+  unarchive:
+    src: "https://github.com/evilsocket/pwnagotchi/releases/download/v{{ pwnagotchi_version }}/pwnagotchi-raspbian-lite-v{{ pwnagotchi_version }}.zip"
+    dest: ~/
+    remote_src: yes
+  when:
+    - inventory_hostname == 'localhost'
