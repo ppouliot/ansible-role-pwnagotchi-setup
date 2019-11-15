@@ -13,7 +13,17 @@ Role Variables
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
- * github_username - The name of the user on Github.com to retrieve ssh keys from using the url https://github.com/${github_username}.keys format'
+### pwnagotchi_github_username
+
+The name of the user on Github.com to retrieve ssh keys from using the url https://github.com/${github_username}.keys format'
+
+### pwnagotchi_wigle_api_key
+
+Apikey to be used with [wigle.net](https://wigle.net)
+
+### pwnagotchi_wpasec_api_key
+
+Apikey to be used with [https://wpa-sec.stanev.org](https://wpa-sec.stanev.org/)
 
 Dependencies
 ------------
